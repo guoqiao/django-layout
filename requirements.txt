@@ -1,2 +1,7 @@
 Django
 path.py
+djangoresetframework
+django_extensions
+django_annoying
+django-model-utils
+iPython
