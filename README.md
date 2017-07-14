@@ -39,11 +39,7 @@ a generic modern django project layout to bootstrap new project.
     │   └── test_users.json
     ├── layout
     │   ├── __init__.py
-    │   ├── settings
-    │   │   ├── base.py
-    │   │   ├── dev.py
-    │   │   ├── __init__.py
-    │   │   └── prod.py
+    │   ├── settings.py
     │   ├── urls.py
     │   └── wsgi.py
     ├── LICENSE

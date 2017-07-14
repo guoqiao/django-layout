@@ -1,22 +1,33 @@
 import os
+from path import Path
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# path of the dir contains site level files
+SITE_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
+SITE_NAME = SITE_DIR.name
+
+BASE_DIR = SITE_DIR.parent
+ROOT_URLCONF = '{}.urls'.format(SITE_NAME)
+WSGI_APPLICATION = '{}.wsgi.application'.format(SITE_NAME)
+
+HOME = Path(os.environ['HOME'])
+
+STATIC_ROOT = HOME / 'static' / SITE_NAME
+MEDIA_ROOT = HOME / 'media' / SITE_NAME
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+LANGUAGES = [
+    ('en', 'English'),
+]
+
+LANGUAGE_CODE = 'en'
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9fo+zzk+vxr0oo_og@ppmzzz7z08=a$er^r2_)ius&5lt^@*of'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
-# Application definition
+# UTC, Pacific/Auckland, Asia/Shanghai
+TIME_ZONE = 'UTC'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,12 +49,12 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'layout.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -56,54 +67,49 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'layout.wsgi.application'
+FIXTURE_DIRS = [
+    BASE_DIR / 'fixtures'
+]
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+## settings needs to override in local.py
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+SITE_URL = 'http://127.0.0.1:8000'
+
+SECRET_KEY = '9fo+zzk+vxr0oo_og@ppmzzz7z08=a$er^r2_)ius&5lt^@*of'
+
+ADMINS = []
+
+MANAGERS = []
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # put db outside repo, so you can move code dir around or delete it
+        'NAME': HOME / '{}.db'.format(SITE_NAME),
     }
 }
 
+# email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
 
-# Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
+EMAIL_HOST = 'email-host'
+EMAIL_HOST_USER = 'email-user-name'
+EMAIL_HOST_PASSWORD = 'email-user-password'
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+DEFAULT_FROM_EMAIL = 'from-email'
+REPLY_TO_EMAIL = 'reply-to-email'
+RETURN_PATH_EMAIL = 'return-path-email'
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.9/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
-STATIC_URL = '/static/'
+try:
+    from .local import *  # noqa
+except ImportError:
+    pass
