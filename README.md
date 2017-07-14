@@ -40,6 +40,7 @@ a generic modern django project layout to bootstrap new project.
     ├── layout
     │   ├── __init__.py
     │   ├── settings.py
+    │   ├── local.py
     │   ├── urls.py
     │   └── wsgi.py
     ├── LICENSE
