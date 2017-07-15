@@ -1,6 +1,14 @@
 # django-layout
 a generic modern django project layout to bootstrap new project.
 
+## TODO
+- test_users.json
+- authentication backend return UserProxy
+- API
+- Celery
+- Frontend
+- Ansible
+
 ## Stack
 
 - ubuntu
