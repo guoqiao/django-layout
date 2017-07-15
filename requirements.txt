@@ -1,6 +1,6 @@
 Django
 path.py
-djangoresetframework
+djangorestframework
 django_extensions
 django_annoying
 django-model-utils
