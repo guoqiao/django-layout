@@ -11,7 +11,7 @@ WSGI_APPLICATION = '{}.wsgi.application'.format(SITE_NAME)
 
 HOME = Path(os.environ['HOME'])
 DATA_ROOT = (HOME / 'data' / SITE_NAME).makedirs_p()
-STATIC_ROOT = (HOME / 'media' / SITE_NAME).makedirs_p()
+STATIC_ROOT = (HOME / 'static' / SITE_NAME).makedirs_p()
 MEDIA_ROOT = (HOME / 'media' / SITE_NAME).makedirs_p()
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
