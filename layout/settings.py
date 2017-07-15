@@ -10,9 +10,9 @@ ROOT_URLCONF = '{}.urls'.format(SITE_NAME)
 WSGI_APPLICATION = '{}.wsgi.application'.format(SITE_NAME)
 
 HOME = Path(os.environ['HOME'])
-
-STATIC_ROOT = HOME / 'static' / SITE_NAME
-MEDIA_ROOT = HOME / 'media' / SITE_NAME
+DATA_ROOT = (HOME / 'data' / SITE_NAME).makedirs_p()
+STATIC_ROOT = (HOME / 'media' / SITE_NAME).makedirs_p()
+MEDIA_ROOT = (HOME / 'media' / SITE_NAME).makedirs_p()
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -92,7 +93,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         # put db outside repo, so you can move code dir around or delete it
-        'NAME': HOME / '{}.db'.format(SITE_NAME),
+        'NAME': DATA_ROOT / 'sqlite.db',
     }
 }
 
