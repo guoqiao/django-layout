@@ -80,6 +80,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
+AUTHENTICATION_BACKENDS = ['apps.accounts.backends.UserProxyModelBackend']
+
 ## settings needs to override in local.py
 DEBUG = True
 
