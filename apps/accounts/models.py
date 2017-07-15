@@ -25,4 +25,4 @@ class Profile(models.Model):
     Add new fields to User model here.
     """
     user = AutoOneToOneField(UserProxy)
-    # TODO: add more field here
+    # TODO: add more fields here
