@@ -19,6 +19,8 @@ class UserProxy(User):
         verbose_name = 'User'
         verbose_name_plural = 'Users'
 
+    objects = UserProxyManager()
+
 
 class Profile(models.Model):
     """
