@@ -26,3 +26,19 @@ class Profile(models.Model):
     """
     user = AutoOneToOneField(UserProxy)
     # TODO: add more fields here
+
+
+class Preference(models.Model):
+    """
+    Generic key value preference for User
+    """
+    user = models.ForeignKey(UserProxy)
+    group = models.CharField(max_length=100, default='')
+    key = models.SlugField(max_length=100)
+    value = models.TextField(blank=True)
+
+    class Meta:
+        unique_together = ('user', 'group', 'key')
+
+    def __str__(self):
+        return '[{}] {}={}'.format(self.group, self.key, self.value)
