@@ -109,6 +109,12 @@ DEFAULT_FROM_EMAIL = 'from-email'
 REPLY_TO_EMAIL = 'reply-to-email'
 RETURN_PATH_EMAIL = 'return-path-email'
 
+SHELL_PLUS_PRE_IMPORTS = (
+    ('datetime', '*'),
+    ('path', 'Path'),
+)
+
+
 try:
     from .local import *  # noqa
 except ImportError:
