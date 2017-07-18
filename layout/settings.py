@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_celery_results',
     # 'django_celery_beat',
+    'rest_framework',
 
     'apps.accounts',
+    'apps.api',
     'apps.main',
 ]
 
