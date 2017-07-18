@@ -22,18 +22,14 @@ class UserProxy(User):
     objects = UserProxyManager()
 
 
+"""
 class Profile(models.Model):
-    """
-    Add new fields to User model here.
-    """
     user = AutoOneToOneField(UserProxy)
     # TODO: add more fields here
 
 
 class Preference(models.Model):
-    """
-    Generic key value preference for User
-    """
+    # Generic key value preference for User
     user = models.ForeignKey(UserProxy)
     group = models.CharField(max_length=100, default='')
     key = models.SlugField(max_length=100)
@@ -44,3 +40,4 @@ class Preference(models.Model):
 
     def __str__(self):
         return '[{}] {}={}'.format(self.group, self.key, self.value)
+"""

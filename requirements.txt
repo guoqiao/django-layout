@@ -1,7 +1,10 @@
 Django
-path.py
 djangorestframework
 django_extensions
 django_annoying
 django-model-utils
+celery[redis]
+django-celery-results
+# django-celery-beat
+path.py
 iPython

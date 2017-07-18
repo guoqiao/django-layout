@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_extensions',
+    'django_celery_results',
+    # 'django_celery_beat',
 
     'apps.accounts',
     'apps.main',
@@ -123,6 +125,6 @@ SHELL_PLUS_PRE_IMPORTS = (
 
 
 try:
-    from .local import *  # noqa
+    from .local_settings import *  # noqa
 except ImportError:
     pass
