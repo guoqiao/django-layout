@@ -1,11 +1,13 @@
 # django-layout
 a generic modern django project layout to bootstrap new project.
 
+# Built-in battaries
+- UserProxy: add method ot user easily
+- test_users: admin, editor, guest
+- Celery: add tasks in tasks.py and call it
+- API: django rest framework with example
+
 ## TODO
-- test_users.json
-- authentication backend return UserProxy
-- API
-- Celery
 - Frontend
 - Ansible
 
@@ -48,7 +50,7 @@ a generic modern django project layout to bootstrap new project.
     ├── layout
     │   ├── __init__.py
     │   ├── settings.py
-    │   ├── local.py
+    │   ├── local_settings.py
     │   ├── urls.py
     │   └── wsgi.py
     ├── LICENSE
