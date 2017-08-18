@@ -20,6 +20,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     http_method_names = ['get', 'patch']
 
     def get_queryset(self):
+        # by default, only return current user information
         return UserProxy.objects.filter(id=self.request.user.id)
 
     @decorators.list_route(methods=['get'])

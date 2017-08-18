@@ -23,11 +23,15 @@ class UserProxy(User):
 
 
 """
+# If you want to extent User with extra fields, uncomment this, and fields to Profile
 class Profile(models.Model):
     user = AutoOneToOneField(UserProxy)
     # TODO: add more fields here
+"""
 
 
+"""
+Another way to extend User, more generic
 class Preference(models.Model):
     # Generic key value preference for User
     user = models.ForeignKey(UserProxy)
