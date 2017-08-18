@@ -1,0 +1,24 @@
+---
+# vim:ff=unix ts=2 sw=2 ai expandtab
+
+- name: apt-get install system packages
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - build-essential
+    - git-all
+    - htop
+    - postgresql
+    - postgresql-contrib
+    - python-dev
+    - python-pip
+    - python-psycopg2
+    - python3-dev
+    - silversearcher-ag
+    - tmux
+    - tree
+    - vim
+    - zsh

@@ -1,0 +1,16 @@
+---
+# vim:ff=unix ts=2 sw=2 ai expandtab
+
+- name: set up a ubuntu
+  hosts: ubuntu
+  vars:
+    - git_repo: https://github.com/guoqiao/django-layout
+    - git_branch: master
+    - site_name: layout  # the name of the dir contains settings
+    - deploy_name: django-layout  # the name of dir on disk
+    - deploy_path: /home/{{ansible_user}}/git/{{deploy_name}}
+
+  tasks:
+
+    - include: tasks/apt.yml
+    - include: tasks/pip.yml

@@ -1,0 +1,14 @@
+---
+# vim:ff=unix ts=2 sw=2 ai expandtab
+#
+
+- name: install pip and system python packages
+  become: true
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - virtualenv
+    - virtualenvwrapper
+    - ipython
+    - pylint
