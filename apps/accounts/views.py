@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def profile(request):
+    context = {
+        'todo': 'TODO'
+    }
+    return render(request, 'accounts/profile.html', context=context)

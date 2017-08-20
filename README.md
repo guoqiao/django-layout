@@ -2,7 +2,7 @@
 a generic modern django project layout to bootstrap new project.
 
 # Built-in battaries
-- UserProxy: add method ot user easily
+- UserProxy: add method to user easily
 - test_users: admin, editor, guest
 - Celery: add tasks in tasks.py and call it
 - API: django rest framework with example
@@ -32,6 +32,10 @@ a generic modern django project layout to bootstrap new project.
     │   │   │   └── __init__.py
     │   │   ├── models.py
     │   │   ├── tests.py
+    │   │   └── views.py
+    │   ├── api
+    │   │   ├── __init__.py
+    │   │   ├── urls.py
     │   │   └── views.py
     │   └── main
     │       ├── admin.py
