@@ -107,7 +107,7 @@ than nested.
 
 ### what is the strange prefix for fixtures naming?
 Normally we have 2 kinds of fixtures:
-1. initial: required for all envs
+1. init: required for all envs
 2. test: used for test/dev
 
 The prefix make it easy to distinct different fixtures. And you can load fixtures in bulk:
@@ -119,4 +119,3 @@ make sense at beginning, it will become a mess later, make it painful to
 figure out what data we have.
 By creating fixtures on a per models basis, I make it very clear what we have
 and where to add new data.
-

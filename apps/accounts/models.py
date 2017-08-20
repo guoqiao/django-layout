@@ -13,6 +13,8 @@ class UserProxyManager(UserManager):
 class UserProxy(User):
     """
     UserProxy is quite useful that you can add new methods to User without breaking anything.
+
+    Please use UserProxy instead of User anywhere.
     """
     class Meta:
         proxy = True
@@ -23,7 +25,7 @@ class UserProxy(User):
 
 
 """
-# If you want to extent User with extra fields, uncomment this, and fields to Profile
+# If you want to extend User with extra fields, uncomment this, and fields to Profile
 class Profile(models.Model):
     user = AutoOneToOneField(UserProxy)
     # TODO: add more fields here
