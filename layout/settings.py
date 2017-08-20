@@ -86,7 +86,10 @@ STATICFILES_DIRS = [
 
 AUTHENTICATION_BACKENDS = ['apps.accounts.backends.UserProxyModelBackend']
 
-## settings needs to override in local.py
+# make media file readable to nginx user
+FILE_UPLOAD_PERMISSIONS = 0o644
+
+# settings needs to override in local.py
 DEBUG = True
 
 ALLOWED_HOSTS = []
